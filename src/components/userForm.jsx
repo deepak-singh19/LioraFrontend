@@ -15,20 +15,24 @@ const Form = () => {
   const {firstName, setFirstName, lastName, setLastName, location, setLocation, course, setCourse, hour, setHour, date, setDate, calendarData, setCalendarData} = useFormContext();
   const handleSubmit = (e) => {
     e.preventDefault();
-    setOnSubmit(true);
-    console.log('Form submitted:', { firstName, lastName, location, course, hour });
-    let newDate = new Date();
+    // console.log('Form submitted:', { firstName, lastName, location, course, hour });
+    if(!hour && !course){
+      alert("Please add hour and course");
+    }else{
+      let newDate = new Date();
     newDate=getNextDay(newDate);
     if (isWeekend(newDate)) {
       newDate = getNextDay(newDate); // Skip weekends
     }
-    console.log(newDate);
+    // console.log(newDate);
     setDate(newDate);
     const newCalendarData = setCalendar(hour, newDate);
     setCalendarData(newCalendarData);
-    console.log('Calendar data:', newCalendarData); // Log calendarData
+
+    // console.log('Calendar data:', newCalendarData); // Log calendarData
     navigate("/schedule");
     postData();
+    }
   };
 
   const postData= async()=>{
@@ -43,9 +47,9 @@ const Form = () => {
   //   }
   // }, [onSubmit]);
   
-  useEffect(() => {
-    console.log("Updated Calendar Data:", calendarData);
-  }, [calendarData]);
+  // useEffect(() => {
+  //   console.log("Updated Calendar Data:", calendarData);
+  // }, [calendarData]);
   
 
   return (

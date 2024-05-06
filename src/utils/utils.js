@@ -6,7 +6,7 @@ export const isWeekend = (date) => {
 export const getNextDay = (date) => {
   let nextDay = new Date(date);
 
-  console.log("get next day ", nextDay)
+  // console.log("get next day ", nextDay)
   nextDay.setDate(nextDay.getDate() + 1);
   while (isWeekend(nextDay)) {
     nextDay.setDate(nextDay.getDate() + 1); // Skip weekends
@@ -38,7 +38,7 @@ export const setCalendar =  (hrs, date) => {
     }
     // const currentDate = new Date(newDate); // Create a new Date object
 
-    console.log("NEW DATE", newDate)
+    // console.log("NEW DATE", newDate)
     // console.log("CURRENT DATE", currentDateISO)
 
     totalDuration+=calendarData[i].duration;

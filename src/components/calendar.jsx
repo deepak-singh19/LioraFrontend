@@ -21,7 +21,7 @@ const fieldsData = {
 }
 const eventSettings = { dataSource: calendarData, fields: fieldsData };
 
-useEffect(()=>{console.log(calendarData)},[calendarData])
+// useEffect(()=>{console.log(calendarData)},[calendarData])
 
 
   return (
